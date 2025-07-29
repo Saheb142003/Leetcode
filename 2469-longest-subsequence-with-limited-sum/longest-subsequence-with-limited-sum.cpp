@@ -11,14 +11,16 @@ public:
         }
 
         for(int i=0;i<m;i++){
-            //int sum=0;
             int count=0;
-            for(int j=0;j<n;j++){
-                if(nums[j]>queries[i]){
-                    break;
-                } 
-                    count++;
-            }        
+           int s=0,e=n-1;
+           while(s<=e){
+                int mid=s+(e-s)/2;
+                if(nums[mid]>queries[i]) e=mid-1;
+                else{
+                    count=mid+1; 
+                    s=mid+1;
+                }
+           }        
             ans[i]=count;
         }
         return ans;
