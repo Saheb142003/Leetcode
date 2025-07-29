@@ -5,14 +5,19 @@ public:
         int m=queries.size();
         sort(nums.begin(),nums.end());
         vector<int>ans(m);
+
+        for(int i=1;i<n;i++){
+            nums[i]+=nums[i-1];
+        }
+
         for(int i=0;i<m;i++){
-            int sum=0;
+            //int sum=0;
             int count=0;
             for(int j=0;j<n;j++){
-                if(sum+nums[j]<=queries[i]){
-                    count++;
-                    sum+=nums[j];
+                if(nums[j]>queries[i]){
+                    break;
                 } 
+                    count++;
             }        
             ans[i]=count;
         }
