@@ -21,12 +21,15 @@ public:
         }
 
         int s, e;
-        if (target >= nums[0] && target <= nums[pi]) {
-            s = 0; 
-            e = pi;
+        if (pi == n - 1) {
+            s = 0; e = n - 1;
+        }
+        else if (target >= nums[0] && target <= nums[pi]) {
+            s = i+1; 
+            e = pi-1;
         } else {
-            s = pi + 1; 
-            e = n - 1;
+            s = pi + 1;
+            e = x - 1;
         }
         while(s<=e){
            int  mid=s+(e-s)/2;
