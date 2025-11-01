@@ -2,35 +2,29 @@ class Solution {
 public:
     bool search(vector<int>& nums, int target) {
         int n=nums.size();
-        int i=0;
-        int x=n-2;
-        int pi=n-1;
-        if (nums[n - 1] == target or nums[i]==target) return true;
-        while(i<=x){
-                if(nums[x]==target) return true;
-                if(nums[i]==target) return true;
-            if(nums[x]>nums[x+1]){
-                pi=x;
-                break;
+        int s=0, e=n-1;
+        // [7,8,9,1,2,3,4,5,6]
+        while(s<e){
+            while(s<e and nums[s]==nums[s+1]) s++;
+            while(s<e and nums[e]==nums[e-1]) e--;
+            int mid=s+(e-s)/2;
+            if(nums[mid]>nums[e]){
+                s=mid+1;
             }
-            if(nums[i]>nums[i+1]) {
-                pi=i;
-                break;
+            else{
+                e=mid;
             }
-            i++;x--;
+        }
+        int p=e;
+        s=0;
+        e=n-1;
+        if(nums[p]<=target and  nums[e]>=target){
+            s=p;
+        }
+        else{
+            e=p-1;
         }
 
-        int s, e;
-        if (pi == n - 1) {
-            s = 0; e = n - 1;
-        }
-        else if (target >= nums[0] && target <= nums[pi]) {
-            s = i+1; 
-            e = pi-1;
-        } else {
-            s = pi + 1;
-            e = x - 1;
-        }
         while(s<=e){
            int  mid=s+(e-s)/2;
             if(nums[mid]== target) return true;
