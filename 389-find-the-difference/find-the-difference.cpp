@@ -1,20 +1,13 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
-        unordered_map<char,int>mp;
+        int sum=0;
+        for(auto i:t){
+            sum+=(i-'a');
+        }
         for(auto i:s){
-            mp[i]++;
+            sum-=(i-'a');
         }
-        char ans;
-        for(auto c:t){
-            if(mp.find(c)==mp.end()){
-                ans=c;
-            }
-            else{
-                mp[c]--;
-                if(mp[c]==0) mp.erase(c);
-            }
-        }
-        return ans;
+        return (sum+'a');
     }
 };
