@@ -5,10 +5,9 @@ public:
         vector<vector<string>>ans;
         unordered_map<string,vector<string>>mp;
         for(int i=0;i<n;i++){
-            string a=strs[i];
-            string x=a;
+            string x=strs[i];
             sort(x.begin(),x.end());
-            mp[x].push_back(a);
+            mp[x].push_back(strs[i]);
         }
         for(auto i:mp){
             ans.push_back(i.second);
