@@ -1,14 +1,17 @@
 class Solution {
 public:
     int findMaxK(vector<int>& nums) {
-        unordered_map<int,int>mp;
-        int maxi=-1;
-        for(auto i:nums){
-            if(mp.find(-i)!=mp.end()){
-                maxi=max(maxi,abs(i));
+        sort(nums.begin(),nums.end());
+        int i=0,j=nums.size()-1;
+        while(i<j){
+            if(-nums[i]==nums[j]){
+                return nums[j];
+            }else if(-nums[i]<nums[j]){
+                j--;
+            }else{
+                i++;
             }
-            mp[i]++;
         }
-        return maxi;
+        return -1;
     }
 };
