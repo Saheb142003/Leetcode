@@ -14,9 +14,9 @@ var merge = function(nums1, m, nums2, n) {
             nums1[k]=nums1[i];
             i--;k--;
         }
-        else{
+        else {
             nums1[k]=nums2[j];
-            j--;k--;
+            k--;j--;
         }
     }
 };
