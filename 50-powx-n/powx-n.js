@@ -11,5 +11,14 @@
     else return x*myPower(x*x,(n-1)/2);
  };
 var myPow = function(x, n) {
-    return myPower(x,n);
+    //return myPower(x,n);
+    if (n>0) {
+        sum = x ** n
+        return sum
+    } else if(n<0) {
+        sum = x ** n
+        return sum
+    } else {
+        return 1
+    }
 };
