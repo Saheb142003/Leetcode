@@ -9,7 +9,15 @@ public:
         char ans=letters[0];
         while(i<=j){
             int mid=(i+(j-i)/2);
-            if(letters[mid]>target){
+                    if (letters[mid] == target) {
+            int k = mid;
+            while (k + 1 < n && letters[k + 1] == target) {
+                k++;
+            }
+            if (k + 1 < n) return letters[k + 1];
+            return letters[0]; // wrap
+        }
+            else if(letters[mid]>target){
                 ans=letters[mid];
                 j=mid-1;
             }
