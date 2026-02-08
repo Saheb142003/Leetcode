@@ -1,7 +1,21 @@
 class Solution {
+    int anothersol(string s){
+        int bCount = 0;
+    int ans = 0;
+
+    for (char c : s) {
+        if (c == 'b') {
+            bCount++;
+        } else { // c == 'a'
+            ans = min(ans + 1, bCount);
+        }
+    }
+    return ans;
+    };
 public:
     int minimumDeletions(string s) {
-     int leftb=0,righta=0;
+
+     /* int leftb=0,righta=0;
      int n=s.length();
      int a=0,b=0;
      vector<pair<int,int>>nums(n);
@@ -22,5 +36,7 @@ public:
      ans=min(ans,(nums[i].first+nums[i].second));
     }
     return ans;
+     */
+    return anothersol(s);
     }
 };
