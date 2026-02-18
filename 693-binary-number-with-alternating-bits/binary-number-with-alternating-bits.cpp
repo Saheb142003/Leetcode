@@ -1,15 +1,13 @@
 class Solution {
 public:
     bool hasAlternatingBits(int n) {
-        bool temp=n%2;
-        n/=2;
-        while(n>0){
-            if(n%2==temp){
-                return false;
-            }
-            temp=n%2;
-            n/=2;
+       bitset<32>bin(n);
+       
+       for(int i=log2(n);i>0;i--){
+        if(bin[i]==bin[i-1]){
+            return false;
         }
-        return true;
+       }
+       return true;
     }
 };
