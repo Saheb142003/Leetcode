@@ -2,9 +2,10 @@ class Solution {
 public:
     int countOneBits(int a){
         int count=0;
-        while(a){
-            count+=a&1;
-            a>>=1;
+        while(a>0){
+            int x=a%2;
+            count+=x;
+            a/=2;
         }
         return count;
     }
