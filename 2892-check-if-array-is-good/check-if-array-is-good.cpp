@@ -2,13 +2,22 @@ class Solution {
 public:
     bool isGood(vector<int>& nums) {
         if(nums.size()<2) return false;
-     sort(nums.begin(),nums.end());
      int n=nums.size();
-     if(nums[n-1]!=nums[n-2])return false;
-     int count=1;
-     for(int i=0;i<=n-2;i++){
-        if(nums[i]==count) count++;
-        else return false;
+     map<int,int>mp;
+     for(int i:nums){
+        mp[i]++;
+     }
+     for(int i=1;i<=n-1;i++){
+        if(mp.find(i)==mp.end()){
+            return false;
+        }
+        if(i==n-1){
+            if(mp[i]!=2) return false;
+        }
+        else{
+            if(mp[i]!=1)return false;
+        }
+        
      }
     return true;
     }
