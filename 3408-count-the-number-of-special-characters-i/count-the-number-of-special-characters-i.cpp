@@ -5,11 +5,11 @@ public:
         int freqA[26]={0};
         int count=0;
         for(int i=0;i<word.length();i++){
-            if(isupper(word[i])){
-                freqA[word[i]-'A']++;
+            if(word[i]<='z' && word[i]>='a'){
+                freqa[word[i]-'a']++;
             }
             else{
-                freqa[word[i]-'a']++;
+                freqA[word[i]-'A']++;
             }
         }
         for(int i=0;i<26;i++){
